@@ -1,0 +1,288 @@
+body {
+    background: url("./assets/background-full/4@3x.png") center center no-repeat fixed;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-family: 'SFProDisplay', sans-serif;
+}
+
+* {
+    outline: none !important
+}
+
+li {
+    list-style-type: none;
+}
+
+input {
+    display: none;
+}
+
+.restore {
+    position: absolute;
+    width: 46px;
+    height: 15px;
+    left: 309px;
+    top: 45px;
+    text-decoration: none;
+
+    font-family: 'SFProText', sans-serif;
+    font-size: 13px;
+    line-height: 41px;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.216667px;
+
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.title {
+    color: #ffffff;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    height: 86px;
+    width: 285px;
+}
+
+.title-container {
+    margin-top: 210px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.features {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-top: 32px;
+    margin-left: 45px;
+    width: 209px;
+    height: 92px;
+    font-family: 'SF Pro Text', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 30px;
+    /* or 179% */
+
+    letter-spacing: -0.321111px;
+
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.684495);
+}
+
+.features span {
+    display: flex;
+    justify-content: center;
+}
+
+.unlimited {
+    margin-right: 7px;
+}
+
+.no-ads {
+    margin-right: 9px;
+}
+
+.export {
+    margin-right: 12px;
+}
+
+.input:checked ~ img {
+    transform: scale(0.8);
+}
+
+.price-block {
+    display: flex;
+    justify-content: center;
+    margin-top: 22px;
+    margin-left: 10px;
+    margin-right: 45px;
+}
+
+.shape-1 {
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-right: 15px;
+}
+
+.shape-2 {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+.time {
+    position: absolute;
+    top: 25px;
+    left: 42px;
+    font-family: 'SFProDisplay', sans-serif;
+    font-size: 17px;
+    line-height: 20px;
+    text-align: center;
+}
+
+.price-per-period {
+    position: absolute;
+    height: 44px;
+    left: 22.45%;
+    right: 23.25%;
+    top: calc(40% - 94px / 2 + 5px);
+
+    font-family: 'SF Pro Display', sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 15px;
+
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.period {
+    position: absolute;
+    height: 44px;
+    left: 28.45%;
+    right: 23.25%;
+    top: calc(50% - 84px / 2 + 5px);
+
+    font-family: 'SF Pro Display', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 15px;
+
+    display: flex;
+    align-items: flex-end;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.free {
+    background: #495795;
+    position: absolute;
+    width: 106%;
+    height: 20px;
+    left: -3%;
+    right: 13.12%;
+    top: calc(65% - 8px / 2 + 1px);
+
+    font-family: 'SFProDisplay', sans-serif;
+    font-size: 15px;
+    line-height: 18px;
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+.price {
+    position: absolute;
+    height: 16px;
+    left: 9.49%;
+    right: 9.56%;
+    top: calc(50% - 16px / 2 + 67px);
+
+    font-family: 'SFProDisplay', sans-serif;
+    font-size: 13px;
+    line-height: 15px;
+
+    text-align: center;
+
+    color: #FFFFFF;
+}
+
+
+button {
+    font-family: 'SFProDisplay', sans-serif;
+    font-size: 17px;
+    line-height: 17px;
+    text-align: center;
+    margin-left: 48px;
+    width: 280px;
+    height: 54px;
+    border-radius: 30px;
+    color: #ffffff;
+    background: #0576ff;
+    background: -moz-linear-gradient(45deg, #19ccff 0, #1988ff 100%);
+    background: -webkit-linear-gradient(45deg, #19ccff 0, #1988ff 100%);
+    background: -o-linear-gradient(45deg, #19ccff 0, #1988ff 100%);
+    background: -ms-linear-gradient(45deg, #19ccff 0, #1988ff 100%);
+    background: linear-gradient(45deg, #19ccff 0, #1988ff 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#19ccff', endColorstr='#1988ff ', GradientType=1)
+}
+
+.auto-rewable {
+    margin-top: 14px;
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-align: center;
+    color: #8d9097;
+}
+
+footer {
+    font-family: 'Roboto', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    text-decoration-line: underline;
+    margin-left: 27px;
+    margin-right: 24px;
+    color: #BDC0D0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 16px;
+}
+
+a {
+    color: #bdc0d0;
+}
+
+.close {
+    cursor: pointer;
+    position: absolute;
+    top: 54px;
+    left: 24px;
+}
+
+.close:before, .close::after {
+    content: "";
+    position: absolute;
+    border-radius: 1px;
+    width: 20px;
+    height: 1.5px;
+    background: #767776;
+}
+
+.close:before {
+    transform: rotate(45deg);
+}
+
+.close:after {
+    transform: rotate(-45deg);
+}
+
+.restore {
+    color: #d8d9c7;
+}
+
+
