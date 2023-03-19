@@ -1,24 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BPMobile</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    <link rel="alternate" hreflang="en" href="localizations/en.json">
-    <link rel="alternate" hreflang="es" href="localizations/es.json">
-    <link rel="alternate" hreflang="fr" href="localizations/fr.json">
-    <link rel="alternate" hreflang="ja" href="localizations/ja.json">
-    <link rel="alternate" hreflang="nl" href="localizations/nl.json">
-    <link rel="alternate" hreflang="ru" href="localizations/ru.json">
-    <link rel="alternate" hreflang="zh" href="localizations/zh.json">
 </head>
 <body>
 
 <header>
     <div class="header-container">
         <a href='#' class="close"></a>
-        <a href='#' class="restore">Restore</a>
+        <a href='#' class="restore" id="Restore"></a>
     </div>
 </header>
 <div class="title-container">
@@ -81,6 +74,7 @@
 </footer>
 
 <script>
+
     const onContinueButtonClickHandler = () => {
 
         const APPLE = "https://apple.com/";
@@ -89,9 +83,29 @@
         const shape1 = document.getElementById("shape-1");
         const shape2 = document.getElementById("shape-2");
 
-        shape1.checked && window.open(APPLE)
-        shape2.checked && window.open(GOOGLE)
-    }
+        shape1.checked && window.open(APPLE);
+        shape2.checked && window.open(GOOGLE);
+    };
+
+    const allLangs = ["en", "es", "fr", "ja", "nl", "ru", "zh"];
+
+    const browserLang = () => {
+        const navLang = navigator.language.slice(0, 2).toLowerCase();
+        const result = allLangs.some((elem) => elem === navLang);
+
+        if (result) {
+            return navLang
+        }
+    };
+
+    let currentLang = browserLang() || "en";
+
+    fetch(`/localizations/${currentLang}.json`)
+        .then(response => response.json())
+        .then(data => {
+            document.querySelector('#Restore').innerText = data.Restore;
+        })
+
 </script>
 
 </body>
