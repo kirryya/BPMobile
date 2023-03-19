@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="fr" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>BPMobile</title>
     <link rel="stylesheet" href="style.css" type="text/css">
+    <link rel="alternate" hreflang="en" href="localizations/en.json">
+    <link rel="alternate" hreflang="es" href="localizations/es.json">
+    <link rel="alternate" hreflang="fr" href="localizations/fr.json">
+    <link rel="alternate" hreflang="ja" href="localizations/ja.json">
+    <link rel="alternate" hreflang="nl" href="localizations/nl.json">
+    <link rel="alternate" hreflang="ru" href="localizations/ru.json">
+    <link rel="alternate" hreflang="zh" href="localizations/zh.json">
 </head>
 <body>
 
@@ -17,24 +24,30 @@
 <div class="title-container">
     <span class="title">Unlimited Access to All Features</span>
 </div>
-<ul class="features">
-    <li><img src="assets/unlimitedDocs.svg" alt="unlimited" class="unlimited">Unlimited
-        documents
-    </li>
-    <li><img src="assets/export.svg" alt="export" class="export">Export to clouds</li>
-    <li><img src="assets/noAds.svg" alt="noAds" class="no-ads">Text recognition (OCR)</li>
-</ul>
+<div class="features-container">
+    <ul class="features">
+        <li><img src="assets/unlimitedDocs.svg" alt="unlimited" class="unlimited"><span>Unlimited
+            documents</span>
+        </li>
+        <li><img src="assets/export.svg" alt="export" class="export"><span>Export to clouds</span>
+        </li>
+        <li><img src="assets/noAds.svg" alt="noAds" class="no-ads"><span>Text recognition (OCR)</span>
+        </li>
+    </ul>
+</div>
 <ul class="price-block">
     <li class="shape-1">
         <div class="shape" id="shape">
             <label for="shape-1">
                 <input type="radio" checked name="price" value="shape1" id="shape-1">
-                <img src="assets/shape-1.svg" alt="shape-1">
-                <span class="time">Monthly</span>
-                <span class="price-per-period">$9.99</span>
-                <span class="period">per month</span>
-                <span class="free">3 DAYS FREE!</span>
-                <span class="price">$9.99 month</span>
+                <div class="shape-content">
+                    <img src="assets/shape-1.svg" alt="shape-1">
+                    <span class="time">Monthly</span>
+                    <span class="price-per-period">$9.99</span>
+                    <span class="period">per month</span>
+                    <span class="free">3 DAYS FREE!</span>
+                    <span class="price">$9.99 month</span>
+                </div>
             </label>
         </div>
     </li>
@@ -42,17 +55,23 @@
         <div class="shape">
             <label for="shape-2">
                 <input type="radio" name="price" value="shape2" id="shape-2">
-                <img src="assets/shape-2.svg" alt="shape-2">
-                <span class="time">Annually</span>
-                <span class="price-per-period">$19.99</span>
-                <span class="period">per year</span>
-                <span class="free">MOST POPULAR</span>
-                <span class="price">$19.99 month</span>
+                <div class="shape-content">
+                    <img src="assets/shape-2.svg" alt="shape-2">
+                    <div class="circle">-83%</div>
+                    <span class="time">Annually</span>
+                    <span class="price-per-period">$19.99</span>
+                    <span class="period">per year</span>
+                    <span class="free">MOST POPULAR</span>
+                    <span class="price">$19.99 month</span>
+                </div>
+
             </label>
         </div>
     </li>
 </ul>
-<button id="myButton" onclick="onContinueButtonClickHandler()">Continue</button>
+<div class="button-container">
+    <button id="myButton" onclick="onContinueButtonClickHandler()">Continue</button>
+</div>
 <span class="auto-rewable">Auto-rewable. Cancel anytime</span>
 <footer>
     <div class="footer-container">
@@ -63,9 +82,15 @@
 
 <script>
     const onContinueButtonClickHandler = () => {
-        document.getElementById("shape-1").checked
-            ? window.open("https://apple.com/") :
-            window.open("https://google.com/")
+
+        const APPLE = "https://apple.com/";
+        const GOOGLE = "https://google.com/";
+
+        const shape1 = document.getElementById("shape-1");
+        const shape2 = document.getElementById("shape-2");
+
+        shape1.checked && window.open(APPLE)
+        shape2.checked && window.open(GOOGLE)
     }
 </script>
 
