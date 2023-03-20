@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/html">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,7 +11,7 @@
 <header>
     <div class="header-container">
         <a class="close" href='#'></a>
-        <a class="restore" href='#' lng-tag="Restore"></a>
+        <a class="restore" id="restore" href='#' lng-tag="Restore"></a>
     </div>
 </header>
 <div class="title-container">
@@ -37,14 +37,15 @@
     <li class="shape-1">
         <div class="shape" id="shape">
             <label for="shape-1">
-                <input type="radio" checked name="price" value="shape1" id="shape-1">
+                <input type="radio" name="price" value="shape1" id="shape-1" checked>
                 <div class="shape-content">
                     <img src="assets/shape-1.svg" alt="shape-1">
                     <span class="time" id="monthly" lng-tag="Monthly"></span>
-                    <span class="period" id="period"
+                    <span class="period" id="period-1"
                           lng-tag="<strong>{{price}}</strong><br>per month"></span>
                     <span class="free" lng-tag="3 DAYS FREE"></span>
-                    <span class="price" lng-tag="{{price}}/month"></span>
+                    <span class="price" id="shape-1-price"
+                          lng-tag="{{price}}/month"></span>
                 </div>
             </label>
         </div>
@@ -57,7 +58,7 @@
                     <img src="assets/shape-2.svg" alt="shape-2">
                     <div class="circle" lng-tag="-83%"></div>
                     <span class="time" id="annually" lng-tag="Annually"></span>
-                    <span class="period"
+                    <span class="period" id="period-2"
                           lng-tag="<strong>{{price}}</strong><br>per year"></span>
                     <span class="free" lng-tag="MOST POPULAR"></span>
                     <span class="price" id="shape-2-price"
@@ -79,85 +80,7 @@
     </div>
 </footer>
 
-<script>
-
-    const onContinueButtonClickHandler = () => {
-
-        const APPLE = "https://apple.com/";
-        const GOOGLE = "https://google.com/";
-
-        const shape1 = document.getElementById("shape-1");
-        const shape2 = document.getElementById("shape-2");
-
-        shape1.checked && window.open(APPLE);
-        shape2.checked && window.open(GOOGLE);
-    };
-
-    const allLangs = ["en", "es", "fr", "ja", "nl", "ru", "zh"];
-
-    const browserLang = () => {
-        const navLang = navigator.language.slice(0, 2).toLowerCase();
-        const result = allLangs.some((elem) => elem === navLang);
-
-        if (result) {
-            return navLang
-        }
-    };
-
-    let currentLang = browserLang() || "en";
-
-    fetch(`/localizations/${currentLang}.json`)
-        .then(response => response.json())
-        .then(data => {
-                let allDom = document.getElementsByTagName("*");
-                for (let i = 0; i < allDom.length; i++) {
-                    let elem = allDom[i];
-                    let key = elem.getAttribute('lng-tag');
-                    if (key !== null) {
-                        elem.innerHTML = data[key];
-                    }
-                }
-            }
-        )
-
-    function replaceClass(id, oldClass, newClass) {
-        let elem = document.getElementById(id);
-        elem.classList.remove(oldClass);
-        elem.classList.add(newClass);
-    }
-
-    if (currentLang !== 'en') {
-        replaceClass("title", "title", "title-new");
-        replaceClass("features", "features", "features-new");
-    }
-
-    if (currentLang === 'fr') {
-        replaceClass("monthly", "time", "time-new");
-        replaceClass("annually", "time", "time-new");
-    }
-
-    let allDom = document.getElementsByTagName("*");
-    let elem1 = allDom[34];
-    let elem2 = allDom[32];
-    let elem3 = allDom[45];
-    let elem4 = allDom[43];
-    let key1 = elem1.getAttribute('lng-tag')
-    let key2 = elem2.getAttribute('lng-tag')
-    let key3 = elem3.getAttribute('lng-tag')
-    let key4 = elem4.getAttribute('lng-tag')
-
-
-    fetch(`/localizations/${currentLang}.json`)
-        .then(response => response.json())
-        .then(data => {
-                elem1.innerHTML = data[key1].replace("{{price}}", "$9.99")
-                elem2.innerHTML = data[key2].replace("{{price}}", "$9.99")
-                elem3.innerHTML = data[key3].replace("{{price}}", "$1.66")
-                elem4.innerHTML = data[key4].replace("{{price}}", "$19.99")
-            }
-        )
-
-</script>
+<script src="app.js"></script>
 
 </body>
 </html>

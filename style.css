@@ -7,6 +7,16 @@ body {
     font-family: 'SFProDisplay', sans-serif;
 }
 
+@media 	only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min--moz-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-resolution: 1.5dppx),
+only screen and (min-resolution: 144dpi)  {
+    .logo  {
+        background-image: url("./assets/background-full/4@2x.png");
+    }
+}
+
 * {
     outline: none !important
 }
@@ -72,6 +82,25 @@ input {
     color: #d8d9c7;
 }
 
+.restore-for-ja {
+    position: absolute;
+    width: 46px;
+    height: 15px;
+    left: 289px;
+    top: 48px;
+    text-decoration: none;
+
+    font-family: 'SFProText', sans-serif;
+    font-size: 11px;
+    line-height: 41px;
+
+    display: flex;
+    align-items: center;
+    letter-spacing: -0.216667px;
+
+    color: #d8d9c7;
+}
+
 @media screen and (max-height: 668px) {
 
     body {
@@ -108,7 +137,7 @@ input {
     width: 285px;
 }
 
-.title-new {
+.title-without-en {
     color: #ffffff;
     font-size: 32px;
     line-height: 28px;
@@ -145,7 +174,7 @@ input {
     text-shadow: 0 0 4px rgba(0, 0, 0, 0.684495);
 }
 
-.features-new {
+.features-without-en {
     color: #ffffff;
     display: flex;
     flex-direction: column;
@@ -234,16 +263,30 @@ input {
     left: 46px;
     font-size: 17px;
     line-height: 20px;
-    text-align: center;
 }
 
-.time-new {
+.time-for-fr {
     position: absolute;
-    top: 25px;
-    left: 18px;
+    top: 32px;
+    left: 27px;
     font-size: 17px;
     line-height: 20px;
-    text-align: center;
+}
+
+.time-for-ja {
+    position: absolute;
+    top: 25px;
+    left: 56px;
+    font-size: 17px;
+    line-height: 20px;
+}
+
+.time-for-zh {
+    position: absolute;
+    top: 25px;
+    left: 60px;
+    font-size: 17px;
+    line-height: 20px;
 }
 
 .period {
@@ -259,6 +302,29 @@ input {
     font-size: 15px;
     line-height: 10px;
     color: #FFFFFF;
+}
+
+.period-for-zh {
+    position: absolute;
+    left: 25.45%;
+    right: 23.25%;
+    top: calc(50% - 30px / 2 + 5px);
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 10px;
+    color: #FFFFFF;
+}
+
+.period-for-zh strong {
+    position: absolute;
+    left: 4.45%;
+    right: 23.25%;
+    top: calc(50% - 60px / 2 + 5px);
+    font-size: 24px;
+    display: flex;
+    justify-content: start;
 }
 
 .period strong {
