@@ -57,8 +57,8 @@ input {
     position: absolute;
     width: 46px;
     height: 15px;
-    left: 309px;
-    top: 45px;
+    left: 289px;
+    top: 48px;
     text-decoration: none;
 
     font-family: 'SFProText', sans-serif;
@@ -90,7 +90,7 @@ input {
 }
 
 .title-container {
-    margin-top: 210px;
+    margin-top: 57%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,6 +100,18 @@ input {
     color: #ffffff;
     font-size: 36px;
     line-height: 42px;
+    text-align: center;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    height: 86px;
+    width: 285px;
+}
+
+.title-new {
+    color: #ffffff;
+    font-size: 32px;
+    line-height: 28px;
     text-align: center;
     text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
     display: flex;
@@ -127,6 +139,26 @@ input {
     font-weight: 400;
     font-size: 17px;
     line-height: 30px;
+
+    letter-spacing: -0.321111px;
+
+    text-shadow: 0 0 4px rgba(0, 0, 0, 0.684495);
+}
+
+.features-new {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-top: 32px;
+    width: 209px;
+    height: 92px;
+    font-family: 'SF Pro Text', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
 
     letter-spacing: -0.321111px;
 
@@ -199,56 +231,40 @@ input {
 .time {
     position: absolute;
     top: 25px;
-    left: 42px;
+    left: 46px;
     font-size: 17px;
     line-height: 20px;
     text-align: center;
 }
 
-.price-per-period {
+.time-new {
     position: absolute;
-    height: 44px;
-    left: 22.45%;
-    right: 23.25%;
-    top: calc(40% - 94px / 2 + 5px);
-
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 15px;
-
-    display: flex;
-    align-items: flex-end;
+    top: 25px;
+    left: 18px;
+    font-size: 17px;
+    line-height: 20px;
     text-align: center;
-
-    color: #FFFFFF;
-}
-
-.shape-1 .price-per-period {
-    left: 27.45%;
 }
 
 .period {
     position: absolute;
-    height: 44px;
+    display: flex;
+    flex-direction: column;
     left: 28.45%;
     right: 23.25%;
-    top: calc(50% - 84px / 2 + 5px);
+    top: calc(50% - 64px / 2 + 5px);
 
     font-style: normal;
     font-weight: 400;
-    font-size: 13px;
-    line-height: 15px;
-
-    display: flex;
-    align-items: flex-end;
-    text-align: center;
-
+    font-size: 15px;
+    line-height: 10px;
     color: #FFFFFF;
 }
 
-.shape-2 .period {
-    left: 34.45%;
+.period strong {
+    font-size: 26px;
+    display: flex;
+    justify-content: center;
 }
 
 .free {

@@ -10,21 +10,26 @@
 
 <header>
     <div class="header-container">
-        <a href='#' class="close"></a>
-        <a href='#' class="restore" id="Restore"></a>
+        <a class="close" href='#'></a>
+        <a class="restore" href='#' lng-tag="Restore"></a>
     </div>
 </header>
 <div class="title-container">
-    <span class="title">Unlimited Access to All Features</span>
+    <span class="title" id="title" lng-tag="Unlimited Access<br>to All Features"></span>
 </div>
 <div class="features-container">
-    <ul class="features">
-        <li><img src="assets/unlimitedDocs.svg" alt="unlimited" class="unlimited"><span>Unlimited
-            documents</span>
+    <ul class="features" id="features">
+        <li>
+            <img class="unlimited" src="assets/unlimitedDocs.svg" alt="unlimited">
+            <span lng-tag="Unlimited documents"></span>
         </li>
-        <li><img src="assets/export.svg" alt="export" class="export"><span>Export to clouds</span>
+        <li>
+            <img class="export" src="assets/export.svg" alt="export">
+            <span lng-tag="Count mode"></span>
         </li>
-        <li><img src="assets/noAds.svg" alt="noAds" class="no-ads"><span>Text recognition (OCR)</span>
+        <li>
+            <img class="no-ads" src="assets/noAds.svg" alt="noAds">
+            <span lng-tag="Text recognition (OCR)"></span>
         </li>
     </ul>
 </div>
@@ -35,11 +40,11 @@
                 <input type="radio" checked name="price" value="shape1" id="shape-1">
                 <div class="shape-content">
                     <img src="assets/shape-1.svg" alt="shape-1">
-                    <span class="time">Monthly</span>
-                    <span class="price-per-period">$9.99</span>
-                    <span class="period">per month</span>
-                    <span class="free">3 DAYS FREE!</span>
-                    <span class="price">$9.99 month</span>
+                    <span class="time" id="monthly" lng-tag="Monthly"></span>
+                    <span class="period" id="period"
+                          lng-tag="<strong>{{price}}</strong><br>per month"></span>
+                    <span class="free" lng-tag="3 DAYS FREE"></span>
+                    <span class="price" lng-tag="{{price}}/month"></span>
                 </div>
             </label>
         </div>
@@ -50,26 +55,27 @@
                 <input type="radio" name="price" value="shape2" id="shape-2">
                 <div class="shape-content">
                     <img src="assets/shape-2.svg" alt="shape-2">
-                    <div class="circle">-83%</div>
-                    <span class="time">Annually</span>
-                    <span class="price-per-period">$19.99</span>
-                    <span class="period">per year</span>
-                    <span class="free">MOST POPULAR</span>
-                    <span class="price">$19.99 month</span>
+                    <div class="circle" lng-tag="-83%"></div>
+                    <span class="time" id="annually" lng-tag="Annually"></span>
+                    <span class="period"
+                          lng-tag="<strong>{{price}}</strong><br>per year"></span>
+                    <span class="free" lng-tag="MOST POPULAR"></span>
+                    <span class="price" id="shape-2-price"
+                          lng-tag="{{price}}/month"></span>
                 </div>
-
             </label>
         </div>
     </li>
 </ul>
 <div class="button-container">
-    <button id="myButton" onclick="onContinueButtonClickHandler()">Continue</button>
+    <button id="myButton" onclick="onContinueButtonClickHandler()"
+            lng-tag="Continue"></button>
 </div>
-<span class="auto-rewable">Auto-rewable. Cancel anytime</span>
+<span class="auto-rewable" lng-tag="Auto-renewable. Cancel anytime."></span>
 <footer>
     <div class="footer-container">
-        <a href='#'>Term of use</a>
-        <a href='#'>Privacy Police</a>
+        <a href='#' lng-tag="Terms of Use"></a>
+        <a href='#' lng-tag="Privacy Policy"></a>
     </div>
 </footer>
 
@@ -103,8 +109,63 @@
     fetch(`/localizations/${currentLang}.json`)
         .then(response => response.json())
         .then(data => {
-            document.querySelector('#Restore').innerText = data.Restore;
-        })
+                let allDom = document.getElementsByTagName("*");
+                for (let i = 0; i < allDom.length; i++) {
+                    let elem = allDom[i];
+                    let key = elem.getAttribute('lng-tag');
+                    if (key !== null) {
+                        elem.innerHTML = data[key];
+                    }
+                }
+            }
+        )
+
+    function replaceClass(id, oldClass, newClass) {
+        let elem = document.getElementById(id);
+        elem.classList.remove(oldClass);
+        elem.classList.add(newClass);
+    }
+
+    if (currentLang !== 'en') {
+        replaceClass("title", "title", "title-new");
+        replaceClass("features", "features", "features-new");
+    }
+
+    if (currentLang === 'fr') {
+        replaceClass("monthly", "time", "time-new");
+        replaceClass("annually", "time", "time-new");
+    }
+
+
+    let allDom = document.getElementsByTagName("*");
+    let elem1 = allDom[34];
+    let elem2 = allDom[32];
+    let elem3 = allDom[45];
+    let elem4 = allDom[43];
+    let key1 = elem1.getAttribute('lng-tag')
+    let key2 = elem2.getAttribute('lng-tag')
+    let key3 = elem3.getAttribute('lng-tag')
+    let key4 = elem4.getAttribute('lng-tag')
+
+
+    fetch(`/localizations/${currentLang}.json`)
+        .then(response => response.json())
+        .then(data => {
+                if (key1.includes('{{price}}')) {
+                    elem1.innerHTML = data[key1].replace("{{price}}", "$9.99")
+                }
+                if (key2.includes('{{price}}')) {
+                    elem2.innerHTML = data[key2].replace("{{price}}", "$9.99")
+                }
+                if (key3.includes('{{price}}')) {
+                    elem3.innerHTML = data[key3].replace("{{price}}", "$1.66")
+                }
+                if (key4.includes('{{price}}')) {
+                    elem4.innerHTML = data[key4].replace("{{price}}", "$19.99")
+                }
+            }
+        )
+
 
 </script>
 
