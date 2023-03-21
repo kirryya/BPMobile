@@ -256,7 +256,6 @@ input {
     display: inline-block;
 }
 
-
 .time {
     position: absolute;
     top: 25px;
@@ -415,5 +414,3 @@ footer {
     justify-content: space-between;
     margin-top: 16px;
 }
-
-
